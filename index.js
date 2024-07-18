@@ -13,7 +13,15 @@ let revNum = n =>  Number([...`${n}`].reverse().join(""));
 //2. A palidrome fn()
 
 let pali = str => {
-    if(str === ""){
-        return "Nothng found"
+    if(str === undefined){
+        console.log("Nothng found") 
+    }
+    let cstr = str.toLowerCase().replace(/[0-9\s]/g,"")
+    let rev_cstr = cstr.split().reverse().join("");
+    if ( rev_cstr === cstr){
+        console.log(rev_cstr)
+        console.log(cstr)
+        console.log("matched, gvn str is pali")
     }
 }
+pali()
