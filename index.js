@@ -10,18 +10,48 @@ let revNo = n => {
 let revNum = n =>  Number([...`${n}`].reverse().join(""));
 
 
-//2. A palidrome fn()
+//2. A palidrome fn() of string
 
 let pali = str => {
-    if(str === undefined){
-        console.log("Nothng found") 
+    if (str === "" || str === undefined){
+        console.log("please enter some string to check if its the palindrome or not");
+        return false;
     }
-    let cstr = str.toLowerCase().replace(/[0-9\s]/g,"")
-    let rev_cstr = cstr.split().reverse().join("");
-    if ( rev_cstr === cstr){
-        console.log(rev_cstr)
-        console.log(cstr)
-        console.log("matched, gvn str is pali")
+    let cstr = str.toLowerCase().replace(/[^a-zA-Z]/g,"");
+    let rev_cstr = [...cstr].reverse().join("");
+
+    if( rev_cstr === cstr){
+        console.log("rev_cstr =",rev_cstr)
+        console.log("original =",cstr)
+        console.log("Gvn str is palindrome");
+        return true;
+    }else{
+        console.log("givn str is not palindrome");
+        return false
     }
 }
+
 pali()
+
+// palindrome fn of no.
+
+let num_pali = num => {
+    if(isNaN(num) || num === undefined || num === ""){
+
+        console.log(" gvn value is not a number either its empty undefined or NaN, plz provide pure no. ")
+        return false;
+    }
+    let rev_num = Number([...`${num}`].reverse().join(""));
+
+    if (num == rev_num ){
+        console.log("gvn no. is palindrome ");
+        return true;
+    }else{
+        console.log("not a palindrome");
+        false;
+    }
+    
+}
+num_pali();
+
+// 4 - Write a JavaScript function that generates all combinations of a string.
