@@ -69,3 +69,75 @@ let combo = str => {
 
     
 }
+
+//5- permutations of string
+
+let perms = str => {
+    res = [];
+
+    const helper = (currentString, upcomingPerms)=>{
+        if(currentString === ""){
+            res.push(upcomingPerms)
+        }
+
+        for(let i = 0; i < currentString.length; i++){
+            const newCurrentString = currentString.slice(0,i).concat(currentString.slice(i + 1));
+            const newCurrentUpcomingPerms = upcomingPerms + currentString[i];
+
+            helper(newCurrentString,newCurrentUpcomingPerms)
+        }
+    }
+    helper(str,"");
+    return res;
+}
+
+//6- function that returns a string that has letters in alphabetical order.
+
+let str_order = str => {
+    let ans = [...str].sort().join("");
+        return ans
+}
+
+//7-function that accepts a string as a parameter and converts the first letter of each word into upper case
+
+let upperCase = str => {
+    words = str.split(" ");
+    res = []
+    for(let i = 0; i < words.length; i++){
+        res.push(words[i].charAt(0).toUpperCase() + words[i].slice(1));
+    }
+    return res.join(" ")
+}
+
+let upper = str => 
+    str
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase().concat(word.slice(1)))
+        .join(" ");
+
+
+//8- Write a JavaScript function that accepts a string as a parameter and finds first the longest word within the string        
+
+
+let longest_wrd = str =>{
+    words = str.split(" ");
+    let longest = "";
+    for(let word of words){
+        if(word.length > longest.length){  
+            longest = word;
+        }
+    }
+    return longest;
+
+}
+
+let longest_str = str =>
+    str.split(" ")
+        .reduce((a,b) => a.length > b.length? a : b)
+
+  //9- Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string.      
+
+  let vowels_finder = str => {
+    let vowels = "aeiouAEIOU";
+    return [...str].filter(word => vowels.includes(word)).length;
+  }
