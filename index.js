@@ -141,3 +141,63 @@ let longest_str = str =>
     let vowels = "aeiouAEIOU";
     return [...str].filter(word => vowels.includes(word)).length;
   }
+
+  //10-Write a JavaScript function that accepts a number as a parameter and checks whether it is prime or not using recursion.
+
+  let primeCheck = num => {
+    if(num === 1){
+        return false;
+    }else if(num === 2){
+        return true
+    }else{
+        for(let i = 2; i < num;i ++){
+            if(num % i ==0){
+                return false
+            }
+        }
+    }return true;
+    
+  }
+
+ //11-Write a JavaScript function that accepts an argument and returns the type.
+
+ let checking_type = a => typeof(a);
+
+ //12- Write a JavaScript function which returns the n rows by n columns identity matrix.
+
+ let matrix = n => {
+    identitymatrix = [];
+
+    for(let i = 0; i < n; i ++){
+        row = [];
+        for(let j = 0; j < n; j++){
+            if (i == j){
+                row.push("#")
+            }else{
+                row.push(0)
+            }
+    
+        }
+        identitymatrix.push(row)
+    }
+    return identitymatrix;
+ }
+ 
+
+ let matrix_ = n => 
+  Array.from({length:n}, ( _, i ) => 
+  Array.from({length:n},(_,j)=> i == j ? 1:0)
+);
+
+
+// 13-  Write a JavaScript function that takes an array of numbers and finds the second lowest and second greatest numbers, respectively.
+let find_second_lowest_and_highest = arr => {
+    sortedArr = [... new Set(arr)].sort((a,b )=> a - b ); //using spread operator to convert back to array so that we can use method sort on it. n set givesa unique set of values
+
+    let secondHigh = sortedArr[sortedArr.length - 2]
+    let secondLow = sortedArr[1]
+
+    return (`"second high= ${secondHigh} and second low = ${secondLow}"`)
+}
+
+
