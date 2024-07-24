@@ -189,7 +189,6 @@ let longest_str = str =>
   Array.from({length:n},(_,j)=> i == j ? 1:0)
 );
 
-
 // 13-  Write a JavaScript function that takes an array of numbers and finds the second lowest and second greatest numbers, respectively.
 let find_second_lowest_and_highest = arr => {
     sortedArr = [... new Set(arr)].sort((a,b )=> a - b ); //using spread operator to convert back to array so that we can use method sort on it. n set givesa unique set of values
@@ -200,4 +199,58 @@ let find_second_lowest_and_highest = arr => {
     return (`"second high= ${secondHigh} and second low = ${secondLow}"`)
 }
 
+//14-  Write a JavaScript function that checks whether a number is perfect.
+//              According to Wikipedia : In number theory, a perfect number is a positive integer that is equal to the sum
+//              of its proper positive divisors, that is, the sum of its positive divisors excluding the number itself
+//              (also known as its aliquot sum). Equivalently, a perfect number is a number that is half the sum of all 
+//              of its positive divisors (including itself).
+//              Example : The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1 + 2 + 3 = 6.
+//              Equivalently, the number 6 is equal to half the sum of all its positive divisors: ( 1 + 2 + 3 + 6 ) / 2 = 6. 
+//              The next perfect number is 28 = 1 + 2 + 4 + 7 + 14. This is followed by the perfect numbers 496 and 8128
 
+let perfect_num = n => { 
+    temp = 0;
+    for(let i = 1; i <= n/2; i++){
+        if( n%i == 0){
+            temp += i;
+        }
+    }
+    if(temp == n && temp !== 0){
+        console.log("it is a perfect no.")
+    }else{
+        console.log("it is not a perfect no.")
+    }
+}
+
+//15- Write a JavaScript function to compute the factors of a positive integer.
+
+let factors_of_positive_int = n => {
+    temp = [];
+    for(let i = 1; i <= n ; i++){
+        if(n % i === 0){
+            temp.push(i)
+        }
+    }
+    return temp;
+}
+
+let factors_ = n => {
+    return Array.from({length:n}, (_, i) => i + 1).filter(i => n % i === 0);
+}
+
+//16-  Write a JavaScript function to convert an amount into coins.
+// Sample function : amountTocoins(46, [25, 10, 5, 2, 1])
+// Here 46 is the amount. and 25, 10, 5, 2, 1 are coins.
+// Output : 25, 10, 10, 1
+
+let amountTocoins =(n, arr) => {
+    res = []
+    for ( let i = 0; i < arr.length; i++){
+        while(n >= arr[i]){
+            res.push(arr[i]);
+            n -= arr[i]
+        }
+       
+    }
+    return res
+}
